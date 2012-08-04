@@ -3,3 +3,6 @@ nowplaying
 
 # A konfig állományra sincs most szükség:
 mrk.cfg
+
+# A bottle.py-t most hagyjuk:
+bottle.py
