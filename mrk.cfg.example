@@ -3,3 +3,7 @@ mplayer = d:/System/Programs/MPlayer/NoGUI/mplayer.exe
 
 [radio]
 url = http://mr-stream.mediaconnect.hu/4738/mr2.mp3
+
+[email]
+from = from@example.com
+to = to@example.com
