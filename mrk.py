@@ -50,7 +50,7 @@ def send_mail(title):
 def index():
     return(u'Most akarsz is valamit, vagy csak kóstolgatsz?')
     
-@route('/akarom')
+@route('/akaromacimet')
 def akarom():
     
     f = open(PROJECT_PATH + "/nowplaying", "r")
