@@ -1,14 +1,19 @@
 import subprocess
-
 import os
+import ConfigParser
 
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 
 print(PROJECT_PATH)
 
-process = subprocess.Popen(['d:/System/Programs/MPlayer/NoGUI/mplayer.exe',
-                            '-vo', 'null', '-ao', 'null',
-                            'http://mr-stream.mediaconnect.hu/4738/mr2.mp3'],
+config = ConfigParser.ConfigParser()
+config.read(PROJECT_PATH + '/mrk.cfg')
+
+MPLAYER = config.get('path', 'mplayer')
+RADIO_URL = config.get('radio', 'url')
+
+process = subprocess.Popen([MPLAYER, '-vo', 'null', '-ao', 'null',
+                            RADIO_URL],
                             shell=False, stdout=subprocess.PIPE)
 
 for line in process.stdout:
