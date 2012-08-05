@@ -2,21 +2,21 @@
 MRK
 ===
 
-Top Secret olvasó és spammer projekt (egyelõre)
+Top Secret olvasÃ³ Ã©s spammer projekt (egyelÅ‘re)
 
-A név
+A nÃ©v
 -----
 
-- M - egy betû
-- R - egy betû
-- K - a 2-es szám elsõ betûje (de itt nem ez a lényeg :) )
+- M - egy betÅ±
+- R - egy betÅ±
+- K - a 2-es szÃ¡m elsÅ‘ betÅ±je (de itt nem ez a lÃ©nyeg :) )
 
-Motiváció
+MotivÃ¡ciÃ³
 ---------
 
-Gyönyörûséges ;)
+GyÃ¶nyÃ¶rÅ±sÃ©ges ;)
 
-Elõkövetelmények
+ElÅ‘kÃ¶vetelmÃ©nyek
 ----------------
 
 - mplayer

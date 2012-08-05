@@ -3,11 +3,11 @@ TODO
 ====
 
 - title_reader.py legyen singletonos!
-- |done| mplayer path legyen konfigból!
-- |done| Rádió URL legyen konfigból!
-- title_reader.py-t átírni daemon-ra!
-- title_reader.py futását figyelni, elindítani, ha nem megy!
-- nowplaying-be JSON-t köpjön ki a cucc (cím, utolsó módosítás)!
+- |done| mplayer path legyen konfigbÃ³l!
+- |done| RÃ¡diÃ³ URL legyen konfigbÃ³l!
+- title_reader.py-t Ã¡tÃ­rni daemon-ra!
+- title_reader.py futÃ¡sÃ¡t figyelni, elindÃ­tani, ha nem megy!
+- nowplaying-be JSON-t kÃ¶pjÃ¶n ki a cucc (cÃ­m, utolsÃ³ mÃ³dosÃ­tÃ¡s)!
 
 .. |done| image:: https://github.com/reedcourty/mrk/raw/dev/done.png
 

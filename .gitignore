@@ -1,12 +1,12 @@
-# A program kimenetére tuti nincs szükség a repóban:
+# A program kimenetÃ©re tuti nincs szÃ¼ksÃ©g a repÃ³ban:
 nowplaying
 
-# A konfig állományra sincs most szükség:
+# A konfig Ã¡llomÃ¡nyra sincs most szÃ¼ksÃ©g:
 mrk.cfg
 
 # A bottle.py-t most hagyjuk:
 bottle.py
 
-# A commit.log szintén nem kell
+# A commit.log szintÃ©n nem kell
 commit.log
 
