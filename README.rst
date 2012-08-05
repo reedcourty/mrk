@@ -19,5 +19,4 @@ Gyönyörűséges ;)
 Előkövetelmények
 ----------------
 
-- mplayer
-
+- https://github.com/kennethreitz/requests
