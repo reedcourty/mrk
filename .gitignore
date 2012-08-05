@@ -6,3 +6,7 @@ mrk.cfg
 
 # A bottle.py-t most hagyjuk:
 bottle.py
+
+# A commit.log szintén nem kell
+commit.log
+
