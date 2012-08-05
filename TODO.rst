@@ -6,6 +6,6 @@ TODO
 - |done| mplayer path legyen konfigból!
 - |done| Rádió URL legyen konfigból!
 
-.. |done| image:: done.png
+.. |done| image:: https://github.com/reedcourty/mrk/blob/dev/done.png
 
 
