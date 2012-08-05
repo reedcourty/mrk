@@ -3,6 +3,9 @@ TODO
 ====
 
 - title_reader.py legyen singletonos!
-- mplayer path legyen konfigból!
-- Rádió URL legyen konfigból!
+- |done| mplayer path legyen konfigból!
+- |done| Rádió URL legyen konfigból!
+
+.. |done| image:: done.png
+
 
