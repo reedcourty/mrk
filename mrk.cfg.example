@@ -1,9 +1,10 @@
-[path]
-mplayer = d:/System/Programs/MPlayer/NoGUI/mplayer.exe
-
 [radio]
 url = http://mr-stream.mediaconnect.hu/4738/mr2.mp3
 
 [email]
-from = from@example.com
-to = to@example.com
+subject = MRK
+from = mrk@example.hu
+replyto = me@example.hu
+to = you@example.com
+cc = 
+bcc = me@example.com
