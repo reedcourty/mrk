@@ -15,8 +15,12 @@ os.chdir(PROJECT_PATH)
 config = ConfigParser.ConfigParser()
 config.read(PROJECT_PATH + '/mrk.cfg')
 
+EMAIL_SUBJECT = config.get('email', 'subject')
 EMAIL_FROM = config.get('email', 'from')
 EMAIL_TO = config.get('email', 'to')
+EMAIL_REPLYTO = config.get('email', 'replyto')
+EMAIL_CC = config.get('email', 'cc')
+EMAIL_BCC = config.get('email', 'bcc')
 
 debug(True)
     
@@ -33,17 +37,16 @@ def send_mail(title):
 
     msg = MIMEText(m, _charset="UTF-8")
     
-    me = EMAIL_FROM
-    
-    msg['Subject'] = "MRK"
-    msg['From'] = me
-    msg['Reply-to'] = me
+    msg['Subject'] = EMAIL_SUBJECT
+    msg['From'] = EMAIL_FROM
+    msg['Reply-to'] = EMAIL_REPLYTO
     msg['To'] = EMAIL_TO
-    msg['Cc'] = me
+    msg['Cc'] = EMAIL_CC
+    msg['Bcc'] = EMAIL_BCC
     
     s = smtplib.SMTP()
     s.connect("localhost")
-    s.sendmail(me, EMAIL_TO + ", " + me, msg.as_string())
+    s.sendmail(EMAIL_FROM, [EMAIL_TO, EMAIL_CC, EMAIL_BCC], msg.as_string())
     s.close()
     
 @route('/')
@@ -59,6 +62,15 @@ def akarom():
     f.close()
     
     send_mail(title)
+    return "{0}".format(title)
+    
+@route('/neznem')
+def neznem():
+    f = open(PROJECT_PATH + "/nowplaying", "r")
+    title = f.readline()
+    print(title)
+    f.close()
+    
     return "{0}".format(title)
     
 @error(404)
