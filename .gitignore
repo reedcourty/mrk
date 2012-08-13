@@ -7,3 +7,6 @@ bottle.py
 # A commit.log szintén nem kell
 commit.log
 
+# A virtualenv könyvtárat nem commitoljuk:
+venv
+
