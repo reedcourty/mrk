@@ -1,0 +1,20 @@
+<!doctype html>
+<head>
+    <title>MRK - Akarom a címet</title>
+</head>
+<body>
+    <p>Jelenleg az MR2-n ez a szám megy: {{ title }}<p>
+    </p><a href="./akaromacimet">Frissítsd!</a></p>
+    
+    <p>Ha gondolod egyből rákereshetsz YouTube-on <a href='https://www.youtube.com/results?search_type=&search_query={{ title }}'>itt</a>.</p>
+    
+    <form id="kuldo_form" method="post">
+    <input type="hidden" name="title" value="{{ title }}" />
+    <table>
+        <tr>
+            <td><input type="submit" value="Küld el nekem e-mailben!" /></td>
+            <td>{% if mail != None %}{{ mail }}{% endif %}</td>
+        </tr>
+    </table>
+    </form>
+</body>

@@ -7,7 +7,7 @@ import ConfigParser
 import smtplib
 from email.mime.text import MIMEText
 
-from flask import Flask
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
 import requests
@@ -67,20 +67,14 @@ def send_mail(title):
 def index():
     return(u'Most akarsz is valamit, vagy csak kóstolgatsz?')
     
-@app.route('/akaromacimet')
+@app.route('/akaromacimet', methods=['POST', 'GET'])
 def akarom():  
     title = get_title(RADIO_URL)
-    print(title)
-    
-    send_mail(title)
-    return "{0}".format(title)
-    
-@app.route('/neznem')
-def neznem():
-    title = get_title(RADIO_URL)
-    print(title)
-    
-    return "Jelenleg az MR2-n ez a szám megy: {0}".format(title)
+    if request.method == 'POST':
+        send_mail(title)
+        return render_template('akaromacimet.html', title=title,
+            mail=u"Elvileg elment a levél.")
+    return render_template('akaromacimet.html', title=title, mail=None)    
     
 @app.errorhandler(404)
 def error404(error):
