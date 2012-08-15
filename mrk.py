@@ -28,9 +28,9 @@ EMAIL_CC = config.get('email', 'cc')
 EMAIL_BCC = config.get('email', 'bcc')
 
 def get_title(url):
-    print("itt vagyok")
-    r = requests.get(url, headers={'Icy-MetaData':'1'})
-    print(r)
+    title = "Sajnos nem tudom most ezt megmondani neked. :("
+    r = requests.get(url, headers={'Icy-MetaData':'1'}, prefetch=False, 
+        timeout=0.05)
     interval = r.headers['icy-metaint']
     r.raw.read(int(interval))
     len = ord(r.raw.read(1))*16
