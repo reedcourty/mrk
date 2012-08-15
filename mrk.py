@@ -7,7 +7,8 @@ import ConfigParser
 import smtplib
 from email.mime.text import MIMEText
 
-from bottle import route, error, default_app, debug
+from flask import Flask
+app = Flask(__name__)
 
 import requests
 
@@ -26,10 +27,10 @@ EMAIL_REPLYTO = config.get('email', 'replyto')
 EMAIL_CC = config.get('email', 'cc')
 EMAIL_BCC = config.get('email', 'bcc')
 
-debug(True)
-
 def get_title(url):
+    print("itt vagyok")
     r = requests.get(url, headers={'Icy-MetaData':'1'})
+    print(r)
     interval = r.headers['icy-metaint']
     r.raw.read(int(interval))
     len = ord(r.raw.read(1))*16
@@ -62,11 +63,11 @@ def send_mail(title):
     s.sendmail(EMAIL_FROM, [EMAIL_TO, EMAIL_CC, EMAIL_BCC], msg.as_string())
     s.close()
     
-@route('/')
+@app.route('/')
 def index():
     return(u'Most akarsz is valamit, vagy csak kóstolgatsz?')
     
-@route('/akaromacimet')
+@app.route('/akaromacimet')
 def akarom():  
     title = get_title(RADIO_URL)
     print(title)
@@ -74,15 +75,17 @@ def akarom():
     send_mail(title)
     return "{0}".format(title)
     
-@route('/neznem')
+@app.route('/neznem')
 def neznem():
     title = get_title(RADIO_URL)
     print(title)
     
     return "Jelenleg az MR2-n ez a szám megy: {0}".format(title)
     
-@error(404)
+@app.errorhandler(404)
 def error404(error):
     return "Szerintem eltévedtél..."  
 
-application = default_app()
+if __name__ == '__main__':
+    app.debug = True
+    app.run()

@@ -1,12 +1,12 @@
 # A konfig állományra sincs most szükség:
 mrk.cfg
 
-# A bottle.py-t most hagyjuk:
-bottle.py
-
 # A commit.log szintén nem kell
 commit.log
 
 # A virtualenv könyvtárat nem commitoljuk:
 venv
+
+# Egyebek:
+*.pyc
 
