@@ -70,11 +70,12 @@ def index():
 @app.route('/akaromacimet', methods=['POST', 'GET'])
 def akarom():  
     title = get_title(RADIO_URL)
+    link = "https://www.youtube.com/results?search_type=&amp;search_query={0}".format(title.replace(" ", "%20"))
     if request.method == 'POST':
         send_mail(title)
-        return render_template('akaromacimet.html', title=title,
+        return render_template('akaromacimet.html', title=title, link=link,
             mail=u"Elvileg elment a levél.")
-    return render_template('akaromacimet.html', title=title, mail=None)    
+    return render_template('akaromacimet.html', title=title, link=link, mail=None)    
     
 @app.errorhandler(404)
 def error404(error):
