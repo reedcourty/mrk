@@ -1,0 +1,12 @@
+<!doctype html>
+<head>
+    {% block head %}
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+</head>
+<body>
+    <div id="header">{% block header %}{% endblock %}</div>
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">{% block footer %}{% endblock %}</div>
+</body>

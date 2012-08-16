@@ -1,9 +1,10 @@
+{% extends "base.html" %}
 <!doctype html>
 <head>
     <title>MRK - Akarom a címet</title>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 </head>
-<body>
+{% block content %}
     <p>Jelenleg az MR2-n ez a szám megy: {{ title }}<p>
     <p><a href="./akaromacimet">Frissítsd!</a></p>
     
@@ -18,4 +19,4 @@
         </tr>
     </table>
     </form>
-</body>
+{% endblock %}
