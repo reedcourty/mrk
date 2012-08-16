@@ -78,7 +78,7 @@ def index():
 def akarom():  
     title = get_title(RADIO_URL)
     css_files = url_for('static', filename='style.css')
-    link = "https://www.youtube.com/results?search_type=&amp;search_query={0}".format(title.replace(" ", "%20"))
+    link = "https://www.youtube.com/results?search_type=&search_query={0}".format(title.replace(" ", "%20"))
     if request.method == 'POST':
         send_mail(title)
         return render_template('akaromacimet.html', css_files=css_files, title=title, link=link,
