@@ -7,6 +7,8 @@ import ConfigParser
 import smtplib
 from email.mime.text import MIMEText
 
+import socket
+
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
@@ -20,6 +22,8 @@ config.read(PROJECT_PATH + '/mrk.cfg')
 
 RADIO_URL = config.get('radio', 'url')
 
+RADIO_TIMEOUT = config.getfloat('radio', 'timeout')
+
 EMAIL_SUBJECT = config.get('email', 'subject')
 EMAIL_FROM = config.get('email', 'from')
 EMAIL_TO = config.get('email', 'to')
@@ -29,13 +33,16 @@ EMAIL_BCC = config.get('email', 'bcc')
 
 def get_title(url):
     title = "Sajnos nem tudom most ezt megmondani neked. :("
-    r = requests.get(url, headers={'Icy-MetaData':'1'}, prefetch=False, 
-        timeout=0.05)
-    interval = r.headers['icy-metaint']
-    r.raw.read(int(interval))
-    len = ord(r.raw.read(1))*16
-    stream_title = r.raw.read(len)
-    title = stream_title.split("'")[1]
+    try:
+        r = requests.get(url, headers={'Icy-MetaData':'1'}, prefetch=False, 
+            timeout=RADIO_TIMEOUT)
+        interval = r.headers['icy-metaint']
+        r.raw.read(int(interval))
+        len = ord(r.raw.read(1))*16
+        stream_title = r.raw.read(len)
+        title = stream_title.split("'")[1]
+    except (socket.timeout, requests.exceptions.Timeout):
+        pass
     return title
     
 def send_mail(title):
