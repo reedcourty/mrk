@@ -15,3 +15,13 @@ body {
     padding: 10px;
     margin: 0px;
 }
+
+#music_title {
+    text-align: center;
+    font-weight: bold;
+}
+
+#music_refresher {
+    text-align: center;
+}
+

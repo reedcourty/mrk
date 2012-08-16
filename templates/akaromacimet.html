@@ -1,25 +1,21 @@
 {% extends "base.html" %}
-<!doctype html>
-<head>
-    <title>MRK - Akarom a címet</title>
-    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-</head>
+{% block title %}MRK - Akarom a címet{% endblock %}
 {% block content %}
     <p>Jelenleg az MR2-n ez a szám megy:</p>
-    <p><center><strong>{{ title }}</strong></center></p>
-    <p><center><a href="./akaromacimet">Frissítsd!</a></center></p>
+    <p id="music_title">{{ title }}</p>
+    <p id="music_refresher">
+        <a href="./akaromacimet">Frissítsd!</a>
+    </p>
     
     <p>Ha gondolod egyből rákereshetsz YouTube-on <a href="{{ link }}" target="_blank">itt</a>.</p>
     
-    <p><center>
     <form id="kuldo_form" method="post">
-    <input type="hidden" name="title" value="{{ title }}" />
-    <table>
-        <tr>
-            <td><input type="submit" value="Küld el nekem e-mailben!" /></td>
-            <td>{% if mail != None %}{{ mail }}{% endif %}</td>
-        </tr>
-    </table>
+        <input type="hidden" name="title" value="{{ title }}" />
+        <table>
+            <tr>
+                <td><input type="submit" value="Küld el nekem e-mailben!" /></td>
+                <td>{% if mail != None %}{{ mail }}{% endif %}</td>
+            </tr>
+        </table>
     </form>
-    <center></p>
 {% endblock %}
