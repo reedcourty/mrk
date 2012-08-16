@@ -1,0 +1,17 @@
+body {
+    margin: 20px;
+    padding: 20px;
+    background-color: #F2F3F4;
+    font-family: arial, verdana;
+}
+
+#content {
+    height: auto;
+    background-color: #A4C639;
+    border: solid 2px #8DB600;
+}
+
+#content p {
+    padding: 10px;
+    margin: 0px;
+}

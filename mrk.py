@@ -9,7 +9,7 @@ from email.mime.text import MIMEText
 
 import socket
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 app = Flask(__name__)
 
 import requests
@@ -77,12 +77,13 @@ def index():
 @app.route('/akaromacimet', methods=['POST', 'GET'])
 def akarom():  
     title = get_title(RADIO_URL)
+    css_files = url_for('static', filename='style.css')
     link = "https://www.youtube.com/results?search_type=&amp;search_query={0}".format(title.replace(" ", "%20"))
     if request.method == 'POST':
         send_mail(title)
-        return render_template('akaromacimet.html', title=title, link=link,
+        return render_template('akaromacimet.html', css_files=css_files, title=title, link=link,
             mail=u"Elvileg elment a levél.")
-    return render_template('akaromacimet.html', title=title, link=link, mail=None)    
+    return render_template('akaromacimet.html', css_files=css_files, title=title, link=link, mail=None)    
     
 @app.errorhandler(404)
 def error404(error):
