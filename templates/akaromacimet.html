@@ -3,17 +3,20 @@
 {% block content %}
     <p>Jelenleg az MR2-n ez a szám megy:</p>
     <p id="music_title">{{ title }}</p>
-    <p id="music_refresher">
-        <a href="./akaromacimet">Frissítsd!</a>
-    </p>
+    <p>Ha gondolod egyből rákereshetsz <img id="youtube_logo" src="{{ url_for('static', filename='images/youtube.png') }}" alt="YouTube" />-on <a href="{{ link }}" target="_blank">itt</a>.</p>
     
-    <p>Ha gondolod egyből rákereshetsz YouTube-on <a href="{{ link }}" target="_blank">itt</a>.</p>
+    <div id="music_refresher">
+        <a href="./akaromacimet"><img class="button" src="{{ url_for('static', filename='images/refresh.png') }}" alt="Frissítsd!" /></a>
+    </div>
     
-    <form id="kuldo_form" method="post">
+    <div id="send_mail">
+        <a href="#" onclick="document['kuldo_form'].submit()"><img class="button" src="{{ url_for('static', filename='images/send_mail.png') }}" alt="Küld el nekem e-mailben!" /></a>
+    </div>
+       
+    <form id="kuldo_form" method="post" name="kuldo_form">
         <input type="hidden" name="title" value="{{ title }}" />
         <table>
             <tr>
-                <td><input type="submit" value="Küld el nekem e-mailben!" /></td>
                 <td>{% if mail != None %}{{ mail }}{% endif %}</td>
             </tr>
         </table>

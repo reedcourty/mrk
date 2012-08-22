@@ -6,9 +6,13 @@ body {
 }
 
 #content {
+    width: 600px;
     height: auto;
+    margin: auto;
+    padding: 10px;
     background-color: #A4C639;
     border: solid 2px #8DB600;
+    border-radius: 10px;
 }
 
 #content p {
@@ -19,9 +23,27 @@ body {
 #music_title {
     text-align: center;
     font-weight: bold;
+    font-family: Constantia,Palatino,'Times New Roman',serif;
 }
 
-#music_refresher {
-    text-align: center;
+#youtube_logo {
+    width: 64px;
+    position: relative;
+    top: 7px;
 }
+
+.button {
+    width: 32px;
+    display: inline;
+    float: right;
+    background-color: #A4C600;
+    border: solid 2px #8DB600;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    position: relative;
+    left: 0px;
+    top: -50px;
+}
+
 
