@@ -14,6 +14,8 @@ app = Flask(__name__)
 
 import requests
 
+from icy import get_title
+
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 os.chdir(PROJECT_PATH)
 
@@ -30,21 +32,7 @@ EMAIL_TO = config.get('email', 'to')
 EMAIL_REPLYTO = config.get('email', 'replyto')
 EMAIL_CC = config.get('email', 'cc')
 EMAIL_BCC = config.get('email', 'bcc')
-
-def get_title(url):
-    title = "Sajnos nem tudom most ezt megmondani neked. :("
-    try:
-        r = requests.get(url, headers={'Icy-MetaData':'1'}, prefetch=False, 
-            timeout=RADIO_TIMEOUT)
-        interval = r.headers['icy-metaint']
-        r.raw.read(int(interval))
-        len = ord(r.raw.read(1))*16
-        stream_title = r.raw.read(len)
-        title = stream_title.split("'")[1]
-    except (socket.timeout, requests.exceptions.Timeout):
-        pass
-    return title
-    
+   
 def send_mail(title):
 
     m = """
@@ -76,9 +64,7 @@ def index():
     
 @app.route('/akaromacimet', methods=['POST', 'GET'])
 def akarom():  
-    title = get_title(RADIO_URL)
-    #css_files = url_for('static', filename='style.css')
-    #images = url_for('static', filename='images')
+    title = get_title(RADIO_URL, RADIO_TIMEOUT)
     link = "https://www.youtube.com/results?search_type=&search_query={0}".format(title.replace(" ", "%20"))
     if request.method == 'POST':
         send_mail(title)
