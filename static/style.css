@@ -10,8 +10,8 @@ body {
     height: auto;
     margin: auto;
     padding: 10px;
-    background-color: #abc0ed;
-    border: solid 2px #002366;
+    background-color: #A4C639;
+    border: solid 2px #8DB600;
     border-radius: 10px;
 }
 
@@ -49,8 +49,8 @@ body {
     width: 32px;
     display: inline;
     float: right;
-    background-color: #88a8ed;
-    border: solid 2px #002366;
+    background-color: #A4C639;
+    border: solid 2px #8DB600;
     border-radius: 5px;
     padding: 5px;
     margin: 5px;
@@ -60,7 +60,7 @@ body {
 }
 
 a:hover .button {
-    background-color: #006994;
+    background-color: #9cb641;
 }
 
 
