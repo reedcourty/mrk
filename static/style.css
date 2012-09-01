@@ -51,7 +51,7 @@ body {
     float: right;
     background-color: #88a8ed;
     border: solid 2px #002366;
-    border-radius: 25px;
+    border-radius: 5px;
     padding: 5px;
     margin: 5px;
     position: relative;
@@ -60,17 +60,7 @@ body {
 }
 
 a:hover .button {
-    width: 32px;
-    display: inline;
-    float: right;
     background-color: #006994;
-    border: solid 2px #002366;
-    border-radius: 25px;
-    padding: 5px;
-    margin: 5px;
-    position: relative;
-    left: 0px;
-    top: -50px;
 }
 
 
