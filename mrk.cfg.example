@@ -9,3 +9,6 @@ replyto = me@example.hu
 to = you@example.com
 cc = 
 bcc = me@example.com
+
+[search_engine]
+youtube = https://www.youtube.com/results?search_query=

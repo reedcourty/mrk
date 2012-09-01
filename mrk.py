@@ -32,15 +32,17 @@ EMAIL_TO = config.get('email', 'to')
 EMAIL_REPLYTO = config.get('email', 'replyto')
 EMAIL_CC = config.get('email', 'cc')
 EMAIL_BCC = config.get('email', 'bcc')
+
+SE_YOUTUBE = config.get('search_engine', 'youtube')
    
 def send_mail(title):
 
     m = """
     {0}
     
-    https://www.youtube.com/results?search_type=&search_query={1}
+    {1}{2}
     
-    """.format(title, title.replace(" ", "%20"))
+    """.format(title, SE_YOUTUBE, title.replace(" ", "+"))
 
     print m
 
@@ -65,7 +67,7 @@ def index():
 @app.route('/akaromacimet', methods=['POST', 'GET'])
 def akarom():  
     title = get_title(RADIO_URL, RADIO_TIMEOUT)
-    link = "https://www.youtube.com/results?search_type=&search_query={0}".format(title.replace(" ", "%20"))
+    link = "{0}{1}".format(SE_YOUTUBE, title.replace(" ", "+"))
     if request.method == 'POST':
         send_mail(title)
         return render_template('akaromacimet.html', title=title, link=link,
