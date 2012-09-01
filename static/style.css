@@ -32,6 +32,19 @@ body {
     top: 7px;
 }
 
+#mail_sent {
+    font-size: 12px;
+    text-align: center;
+    width: 150px;
+    background-color: #A4C639;
+    border: solid 2px #8DB600;
+    padding: 0px;
+    margin: 0px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
 .button {
     width: 32px;
     display: inline;

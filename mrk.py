@@ -70,9 +70,8 @@ def akarom():
     link = "{0}{1}".format(SE_YOUTUBE, title.replace(" ", "+"))
     if request.method == 'POST':
         send_mail(title)
-        return render_template('akaromacimet.html', title=title, link=link,
-            mail=u"Elvileg elment a levél.")
-    return render_template('akaromacimet.html', title=title, link=link, mail=None)    
+        return render_template('akaromacimet.html', title=title, link=link, mail=True)
+    return render_template('akaromacimet.html', title=title, link=link, mail=False)    
     
 @app.errorhandler(404)
 def error404(error):

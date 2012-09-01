@@ -4,6 +4,17 @@
     <p>Jelenleg az MR2-n ez a szám megy:</p>
     <p id="music_title">{{ title }}</p>
     <p>Ha gondolod egyből rákereshetsz <img id="youtube_logo" src="{{ url_for('static', filename='images/youtube.png') }}" alt="YouTube" />-on <a href="{{ link }}" target="_blank">itt</a>.</p>
+    {% if mail %}
+        <script>
+            $("document").ready(function () {
+                $("#mail_sent").fadeOut(10000);
+            });
+        </script>
+
+        <div id="mail_sent">
+            <p>Elvileg elment a levél.</p>
+        </div>
+    {% endif %}
     
     <div id="music_refresher">
         <a href="./akaromacimet"><img class="button" src="{{ url_for('static', filename='images/refresh.png') }}" alt="Frissítsd!" /></a>
@@ -15,10 +26,5 @@
        
     <form id="kuldo_form" method="post" name="kuldo_form">
         <input type="hidden" name="title" value="{{ title }}" />
-        <table>
-            <tr>
-                <td>{% if mail != None %}{{ mail }}{% endif %}</td>
-            </tr>
-        </table>
     </form>
 {% endblock %}
