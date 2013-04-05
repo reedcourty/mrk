@@ -7,7 +7,7 @@ import requests
 def get_title(url, timeout):
     title = "Sajnos nem tudom most ezt megmondani neked. :("
     try:
-        r = requests.get(url, headers={'Icy-MetaData':'1'}, prefetch=False, 
+        r = requests.get(url, headers={'Icy-MetaData':'1'}, stream=False, 
             timeout=timeout)
         interval = r.headers['icy-metaint']
         r.raw.read(int(interval))
